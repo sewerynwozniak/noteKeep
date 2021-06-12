@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports ={
 
-    entry: './src/index.ts',
+    entry: './src/app.ts',
     plugins: [new HtmlWebpackPlugin({
         template:'./src/template.html'
     })],
@@ -20,7 +20,7 @@ module.exports ={
                 loader: 'html-loader',
             },
             {
-                test: /\.(png|jpe?g|gif)$/i,
+                test: /\.(png|jpe?g|gif|svg)$/i,
                 use: [
                   {
                     loader: 'file-loader',

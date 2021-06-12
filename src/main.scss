@@ -1,6 +1,120 @@
+$main-color:rgb(36, 34, 34);
+
+
 body{
-    background: pink;
+    background: $main-color;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-h1{
-    color: rgb(75, 48, 48);
+
+
+
+
+
+.topBar{
+    height: 50px;
+    position: relative;
+    border-bottom:1px rgb(83, 83, 83) solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+
+
+
+    &__searchInput{
+        border: none;
+        border-radius: 5px;
+        padding: 10px 10px;
+        background: url(./assets/loupe.png) no-repeat left center;
+        background-color: rgb(228, 228, 228);
+        padding-left: 30px;
+        
+    }
+
+
+}
+
+
+
+
+
+
+.form{
+    width: 500px;
+    margin: 20px auto;
+    position: relative;
+    border: 1px solid rgb(202, 202, 202);
+    border-radius: 5px;
+    
+
+
+    &__title{
+        border: none;
+        outline: none;
+        padding: 10px;
+        background-color: $main-color;
+        color: #fff;
+    }
+
+    &__body{
+        max-width: 100%;
+        min-width: 100%;
+        padding: 10px;
+        height: 50px;
+        box-sizing: border-box;
+        border: none;
+        outline: none;
+        background-color: $main-color;
+        color: #fff;
+    }
+
+
+    &__bottomBar{
+        display: flex;
+        justify-content: space-around;
+        background-color: $main-color;
+        padding: 5px 0;
+        border-radius: 5px;
+    }
+
+    &__btn{
+        border: none;
+        background-color: rgb(53, 53, 53);
+        color: rgb(241, 241, 241);
+        border-radius: 5px;
+        padding: 0 10px;
+    }
+
+}
+
+
+
+.form .hidden{
+    display: none;
+}
+
+
+
+
+.notesContainer{
+    display: flex;   
+}
+
+.noteContainer{
+    width: 300px;
+    margin: 50px;
+    border-radius: 5px;
+    border: 1px rgb(228, 228, 228) solid;
+    
+    
+}
+
+.noteTitle{
+    color: #fff;
+    text-align: center;
+}
+.noteBody{
+    color: #fff;
+    text-align: center;
 }
