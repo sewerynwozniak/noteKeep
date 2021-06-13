@@ -1,5 +1,6 @@
 import {Notes} from './notes'
-import {Note} from './note'
+import {AppStorage} from './appStorage'
+
 
 export class AddNote{
 
@@ -10,24 +11,30 @@ formBottomBar = document.querySelector('.form__bottomBar') as HTMLInputElement;
 btnAddNote = document.querySelector('.form__btn--add') as HTMLButtonElement;
 btnCloseForm = document.querySelector('.form__btn--close') as HTMLButtonElement;
 notes:Notes;
+appStorage:AppStorage;
 
 
-constructor(notes:Notes){
+constructor(notes:Notes, appStorage:AppStorage){
     this.btnAddNote.addEventListener('click', ()=>this.addNote())
     this.formBody.addEventListener('click', ()=>this.openExpandedMenu())
     this.btnCloseForm.addEventListener('click', ()=>this.closeExpandedMenu())
     this.notes = notes
+    this.appStorage = appStorage
 
 }
 
 
 addNote(){
-    const id = this.notes.notes.length+1;
+    //const id = this.notes.notes.length+1;
+    const id = this.appStorage.getNotes().length+1;
     const title = this.formTitle.value;
     const body = this.formBody.value;
 
+    console.log(this.appStorage.getNotes())
 
-    this.notes.notes.push({id, title, body})
+
+    //this.notes.notes.push({id, title, body})
+    this.appStorage.saveNotes({id, title, body})
 
     this.formTitle.value='';
     this.formBody.value='';

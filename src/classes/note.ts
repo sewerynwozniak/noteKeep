@@ -32,23 +32,17 @@ export class Note{
 
     getElement(){     
 
-        //console.log(this.notes)
 
-        //return this.generateNoteTemplate(this.note.title, this.note.body);
         this.notes.notesContainer.innerHTML+= this.generateNoteTemplate(this.note.id, this.note.title, this.note.body)
-        const x = this.notes.notesContainer.querySelectorAll('.noteDelete')
-        //console.log(x)
+        const deleteButtons = this.notes.notesContainer.querySelectorAll('.noteDelete')
 
-        x.forEach(x=>x.addEventListener('click', (e)=>{
+
+        deleteButtons.forEach(deleteBtn=>deleteBtn.addEventListener('click', (e)=>{
             let parent = (<HTMLElement>e.target).parentElement;
             let clickedId = parent?.getAttribute('data-id');
-            //console.log(clickedId)
-
             this.notes.deleteNote(+clickedId!)
-
-            // console.log(this.notes.notesContainer.children)
         }))
-        //console.log(this.notes.notesContainer.children)
+        
     }
 
 }

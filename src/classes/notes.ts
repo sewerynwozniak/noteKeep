@@ -26,7 +26,6 @@ export class Notes{
         this.notesContainer.innerHTML=''
         this.notes.map(note=>{
             new Note(note as noteInterface, this)}
-
         )
     }
 

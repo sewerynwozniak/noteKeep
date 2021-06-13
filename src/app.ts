@@ -1,35 +1,26 @@
 import {AddNote} from './classes/addNote'
 import { Notes } from './classes/notes';
+import { AppStorage } from './classes/appStorage';
 import { Note } from './classes/note';
 import './main.scss'
 
 
 
-const list =[
-    {
-        id:1,
-        title:'Zakupy',
-        body:'Wstąpić do Lidla'
-    },
-    {
-        id:2,
-        title:'Nauka',
-        body:'Nauka przyrki'
-    },
-]
 
 
 export class App {
     
+    appStorage = new AppStorage
   
   constructor(){
     this.loadNotes()
+    
  
   }
 
     loadNotes():void{
-        const notes = new Notes(list);
-        new AddNote(notes)
+        const notes = new Notes(this.appStorage.getNotes());
+        new AddNote(notes, this.appStorage)
     }
 
 
