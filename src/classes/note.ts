@@ -32,7 +32,7 @@ export class Note{
 
     getElement(){     
 
-        console.log(this.notes)
+        //console.log(this.notes)
 
         //return this.generateNoteTemplate(this.note.title, this.note.body);
         this.notes.notesContainer.innerHTML+= this.generateNoteTemplate(this.note.id, this.note.title, this.note.body)

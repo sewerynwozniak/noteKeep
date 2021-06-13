@@ -10,29 +10,29 @@ formBottomBar = document.querySelector('.form__bottomBar') as HTMLInputElement;
 btnAddNote = document.querySelector('.form__btn--add') as HTMLButtonElement;
 btnCloseForm = document.querySelector('.form__btn--close') as HTMLButtonElement;
 notes:Notes;
-newNote:object;
+
 
 constructor(notes:Notes){
     this.btnAddNote.addEventListener('click', ()=>this.addNote())
     this.formBody.addEventListener('click', ()=>this.openExpandedMenu())
     this.btnCloseForm.addEventListener('click', ()=>this.closeExpandedMenu())
-    this.newNote={};
     this.notes = notes
-    //console.log(notes)
+
 }
 
 
 addNote(){
+    const id = this.notes.notes.length+1;
     const title = this.formTitle.value;
     const body = this.formBody.value;
 
-    this.notes.notes.push({title, body})
-    console.log(this.formTitle.value)
-    console.log(this.formBody.value)
+
+    this.notes.notes.push({id, title, body})
 
     this.formTitle.value='';
     this.formBody.value='';
-    console.log(this.notes)
+
+    this.notes.display()
 }
 
 

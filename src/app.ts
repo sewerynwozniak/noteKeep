@@ -27,14 +27,10 @@ export class App {
  
   }
 
-
-
     loadNotes():void{
         const notes = new Notes(list);
         new AddNote(notes)
     }
-
-
 
 
 }
