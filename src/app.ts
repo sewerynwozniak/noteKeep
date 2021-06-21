@@ -1,8 +1,8 @@
 import {AddNote} from './classes/addNote'
 import { Notes } from './classes/notes';
 import { AppStorage } from './classes/appStorage';
-import { Note } from './classes/note';
 import './main.scss'
+
 
 
 
@@ -10,19 +10,22 @@ import './main.scss'
 
 export class App {
     
-    appStorage = new AppStorage
-  
+    notes:Notes
+    addNotes:AddNote
+    appStorage:AppStorage
+
   constructor(){
+    this.appStorage = new AppStorage()
+    this.notes = new Notes([],this.appStorage);
+    this.addNotes = new AddNote(this.notes, this.appStorage)
     this.loadNotes()
-    
- 
   }
 
-    loadNotes():void{
-        const notes = new Notes(this.appStorage.getNotes());
-        new AddNote(notes, this.appStorage)
-    }
 
+    loadNotes(){
+        this.notes.loadNotes(this.appStorage.getNotes())
+    }
+   
 
 }
 

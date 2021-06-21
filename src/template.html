@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>noteKeep</title>
 </head>
 <body>
 
@@ -16,53 +16,50 @@
 
 
 
-               
-    <!-- <form class="form">
-        <input class="form__addNoteInput" placeholder='Utwórz notatkę' type="text" name="addNote" id="">
-        <div class="form__expandedForm hidden">
-            <input class="form__title" type="text"placeholder='Tytuł'>
-            <textarea class="form__body" name="" placeholder='Utwórz notatkę' id="" cols="30" rows="10"></textarea>
-            <div class="form__bottomBar">
-                <img src="./assets/pin.png" alt="">
-                <img src="./assets/color-palette.png" alt="">                 
-                <button class="form__btn form__btn--add" type='button'>Dodaj</button>
-                <button class="form__btn form__btn--close" type='button' >Odrzuć</button>
-            </div>
-        </div>
-    </form> -->
-
-
     <form class="form">
             <input class="form__title hidden" type="text"placeholder='Tytuł'>
             <textarea class="form__body" name="" placeholder='Utwórz notatkę' id="" cols="30" rows="10"></textarea>
             <div class="form__bottomBar hidden">
-                <img src="./assets/pin.png" alt="">
-                <img src="./assets/color-palette.png" alt="">                 
+                <button class='form__btnPin' type='button'><img src="./assets/pin.png" alt=""></button> 
+                <button class='form__btnColor' type='button'>
+                    <img src="./assets/color-palette.png" alt="">
+                    <div class="form__colorPalette">
+                        <div data-color='black' class="form__color form__color--black"></div>
+                        <div data-color='blue' class="form__color form__color--blue"></div>
+                        <div data-color='red' class="form__color form__color--red"></div>
+                        
+                    </div>
+                </button>                
                 <button class="form__btn form__btn--add" type='button'>Dodaj</button>
                 <button class="form__btn form__btn--close" type='button' >Odrzuć</button>
             </div>
     </form>
 
-
     
+    
+    <h5 class='header header--pinned'>Przypięte</h5>
+    <div class="notesContainer--pinned">
 
+        
 
-    <div class="notesContainer">
-
-        <!-- <div class="noteContainer" >
-            <button class="noteDelete">X</button>
-            <img src="./assets/close-btn.png" alt="">
-            <h5 contenteditable="true" class="noteTitle">Tytuł</h5>
-            <p contenteditable="true" class="noteBody">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima voluptates cumque perspiciatis saepe veniam eligendi totam necessitatibus odio! Incidunt, ducimus!</p>
-        </div>
-
-        <div class="noteContainer">
-            <button class="noteDelete">X</button>
-            <h5 contenteditable="true" class="noteTitle">Tytuł</h5>
-            <p contenteditable="true" class="noteBody">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima voluptates cumque perspiciatis saepe veniam eligendi totam necessitatibus odio! Incidunt, ducimus!</p>
+        <!-- <div data-id="${id}" class="noteContainer">
+            <div class="noteContainer__topBar">
+                <button class="notePin"><img src="./assets/pin.png" alt=""></button>
+                <button class="noteDelete">X</button>
+            </div>          
+            <h5 contenteditable="true" class="noteTitle">demo</h5>
+            <p contenteditable="true" class="noteBody">demo</p>
+            <span class="noteDate">21 06 2021</span>
         </div> -->
 
     </div>
+
+
+    <h5 class='header header--rest'>Pozostałe</h5>
+    <div class="notesContainer">
+
+    </div>
+
 
 
 </body>

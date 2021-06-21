@@ -19,9 +19,6 @@ body{
     justify-content: center;
 
 
-
-
-
     &__searchInput{
         border: none;
         border-radius: 5px;
@@ -34,7 +31,6 @@ body{
 
 
 }
-
 
 
 
@@ -84,10 +80,90 @@ body{
         color: rgb(241, 241, 241);
         border-radius: 5px;
         padding: 0 10px;
+
+
+        &Pin{
+            background-color: transparent;
+            border: none;
+            border-radius: 10px;
+            padding: 5px;
+            cursor: pointer;
+
+          
+
+        }
+        &Color{
+            position: relative;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+
+
+            
+
+
+            &:hover .form__colorPalette{
+                visibility: visible;
+            }
+        }
+
     }
+
+
+    &__colorPalette{
+        position: absolute;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        visibility: hidden;
+        border-radius: 5px;
+        color: #fff;
+        width: 70px;
+        height: 30px;
+        background-color: rgba(255, 255, 255, 0.267);
+        top: -70%;
+        cursor: default;
+        
+    }
+
+
+    &__color{
+        width: 20px;
+        height: 20px;
+        border-radius: 50px;
+        background-color: red;
+        box-sizing: border-box;
+
+        &:hover{
+            cursor: pointer;
+            border: solid 1px #fff;
+        }
+
+        
+        &--black{
+            background-color: $main-color;           
+        }
+        &--red{
+            background-color: rgb(189, 31, 31);            
+        }
+        &--blue{
+            background-color: rgb(24, 120, 175);
+        }
+    }
+
 
 }
 
+.form .clicked{
+    transform: scale(0.9);
+    border: 1px solid rgb(78, 78, 78);
+    
+}
+
+.form .clickedColor{
+    border: solid 1px #fff;
+    
+}
 
 
 .form .hidden{
@@ -97,8 +173,25 @@ body{
 
 
 
+.header{
+    color: rgb(216, 216, 216);
+    letter-spacing: 2px;
+    margin-left: 30px;
+    display: none;
+}
+
+
+
+
+
 .notesContainer{
     display: flex;   
+    flex-wrap: wrap;
+
+    &--pinned{
+        display: flex;   
+        flex-wrap: wrap;
+    }
 }
 
 .noteContainer{
@@ -108,7 +201,15 @@ body{
     border: 1px rgb(228, 228, 228) solid;
     
     
+    &__topBar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
 }
+
+
 
 .noteTitle{
     color: #fff;
@@ -117,4 +218,27 @@ body{
 .noteBody{
     color: #fff;
     text-align: center;
+}
+
+.noteDelete{
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 20px;
+}
+.noteDate{
+    display: block;
+    text-align: right;
+    color: rgb(204, 204, 204);
+    padding: 10px;
+    font-size: 10px;
+}
+
+.notePin{
+    cursor: pointer;
+}
+.notePin--pinned{
+    transform: scale(0.7);
 }
