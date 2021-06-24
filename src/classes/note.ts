@@ -39,18 +39,20 @@ export class Note{
         let notePins:NodeListOf<HTMLButtonElement>;
         let titleInputs:NodeListOf<HTMLHeadingElement>;
         let bodyInputs:NodeListOf<HTMLParagraphElement>;
-        
+
       
         if(this.note.pin){
             this.notes.notesContainerPinned.innerHTML+= this.generateNoteTemplate(this.note.id, this.note.title, this.note.body, this.note.color, this.note.date)
              deleteButtons = this.notes.notesContainerPinned.querySelectorAll('.noteDelete')
              titleInputs = this.notes.notesContainerPinned.querySelectorAll('.noteTitle');
              bodyInputs = this.notes.notesContainerPinned.querySelectorAll('.noteBody');
+             notePins = this.notes.notesContainerPinned.querySelectorAll('.notePin');
         }else{
             this.notes.notesContainer.innerHTML+= this.generateNoteTemplate(this.note.id, this.note.title, this.note.body, this.note.color, this.note.date)
              deleteButtons = this.notes.notesContainer.querySelectorAll('.noteDelete')
              titleInputs = this.notes.notesContainer.querySelectorAll('.noteTitle');
              bodyInputs = this.notes.notesContainer.querySelectorAll('.noteBody');
+             notePins = this.notes.notesContainer.querySelectorAll('.notePin');
         }
 
         
@@ -64,8 +66,22 @@ export class Note{
         titleInputs.forEach(titleInput=>titleInput.addEventListener('keyup',(e)=>this.editNote(titleInput,e, NoteParts.title)))
         bodyInputs.forEach(bodyInput=>bodyInput.addEventListener('keyup',(e)=>this.editNote(bodyInput,e, NoteParts.body)))
 
+
+        notePins.forEach(pin=>pin.addEventListener('click', (e:any)=>this.togglePin(pin,e)))
+
     }
 
+
+     togglePin(el:any, e:any){
+
+
+        console.log(e.target)
+        let target = e.target
+        target.classList.toggle('notePin--pinned')
+
+    }
+
+    
 
     editNote(el:any,e:any, notePart:NoteParts){
         let parent = (<HTMLElement>e.target).parentElement;
@@ -85,3 +101,4 @@ export class Note{
 
 
 }
+

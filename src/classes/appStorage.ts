@@ -49,6 +49,12 @@ export class AppStorage{
         
     }
 
+    changePinValue(id:number){
+        
+
+
+    }
+
 
 
     deleteNote(id:number){
